@@ -5,8 +5,132 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calculator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Calculator" Height="450" Width="325">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.02*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0.02*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.01*"/>
+            <RowDefinition/>
+            <RowDefinition Height="0.01*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="1" Grid.Row="1">
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition/>
+                <ColumnDefinition />
+                <ColumnDefinition/>
+                <ColumnDefinition Width="0.84*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="0.45*"/>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="0.5*"/>
+            </Grid.RowDefinitions>
+            <!-- SUB GRID FOR CLEARING DISPLAY -->
+            <Grid Grid.Row="1"
+              Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Button Grid.Column="0"
+                Grid.Row="0"
+                Content="BACK">
+                </Button>
+                <Button Grid.Column="0"
+                Grid.Row="1"
+                Content="C">
+                </Button>
+
+            </Grid>
+
+            <!--  MAIN NUMBERS PANEL WITH "," AND "+/-"   -->
+            <Button Grid.Column="0"
+                Grid.Row="2"
+                Content="8">
+            </Button>
+            <Button Grid.Column="1"
+                Grid.Row="2"
+                Content="7">
+            </Button>
+            <Button Grid.Column="2"
+                Grid.Row="2"
+                Content="9">
+            </Button>
+            <Button Grid.Column="0"
+                Grid.Row="3"
+                Content="4">
+            </Button>
+            <Button Grid.Column="1"
+                Grid.Row="3"
+                Content="5">
+            </Button>
+            <Button Grid.Column="2"
+                Grid.Row="3"
+                Content="6">
+            </Button>
+            <Button Grid.Column="0"
+                Grid.Row="4"
+                Content="1">
+            </Button>
+            <Button Grid.Column="1"
+                Grid.Row="4"
+                Content="2">
+            </Button>
+            <Button Grid.Column="2"
+                Grid.Row="4"
+                Content="3">
+            </Button>
+            <Button Grid.Column="0"
+                Grid.Row="5"
+                Content="+/-">
+            </Button>
+            <Button Grid.Column="1"
+                Grid.Row="5"
+                Content="0">
+            </Button>
+            <Button Grid.Column="2"
+                Grid.Row="5"
+                Content=",">
+            </Button>
+            <!-- ARITMETIC RIGHT PANEL  -->
+            <Button Grid.Column="4"
+                Grid.Row="5"
+                Content="-">
+            </Button>
+            <Button Grid.Column="4"
+                Grid.Row="4"
+                Content="+">
+            </Button>
+            <Button Grid.Column="4"
+                Grid.Row="3"
+                Content="*">
+            </Button>
+            <Button Grid.Column="4"
+                Grid.Row="2"
+                Content="/">
+            </Button>
+            <!-- ARITMETIC UP PANEL  -->
+            <Button Grid.Column="3"
+                Grid.Row="1"
+                Content="=">
+            </Button>
+            <Button Grid.Column="2"
+                Grid.Row="1"
+                Content="1/x">
+            </Button>
+            <Button Grid.Column="1"
+                Grid.Row="1"
+                Content="x^2">
+            </Button>
+
+        </Grid>
     </Grid>
+ 
 </Window>
