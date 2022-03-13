@@ -7,6 +7,24 @@
         mc:Ignorable="d"
         Title="Calculator" Height="450" Width="325">
     <Grid>
+        <!-- STYLING BACKGROUND GRID !-->
+        <Grid.Resources>
+            <Style TargetType="Grid">
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF383838" Offset="1"/>
+                            <GradientStop Color="White" Offset="0.247"/>
+                            <GradientStop Color="#FFA8A8A8" Offset="0.427"/>
+                            <GradientStop Color="#FFA8A8A8" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Setter.Value>
+                </Setter>
+
+            </Style>
+
+         <!-- MAIN GRID PANEL -->
+        </Grid.Resources>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.02*"/>
             <ColumnDefinition/>
@@ -45,10 +63,17 @@
                 </Button>
                 <Button Grid.Column="0"
                 Grid.Row="1"
-                Content="C">
+                Content="CLEAR">
                 </Button>
-
+                <Grid.Resources>
+                    <Style TargetType="Grid">
+                        <Setter Property="Background"
+                                Value="Transparent">
+                        </Setter>
+                    </Style>
+                </Grid.Resources>
             </Grid>
+
 
             <!--  MAIN NUMBERS PANEL WITH "," AND "+/-"   -->
             <Button Grid.Column="0"
@@ -129,8 +154,33 @@
                 Grid.Row="1"
                 Content="x^2">
             </Button>
+            
+            <TextBlock Grid.ColumnSpan="4"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       Padding="25"
+                       Text="llllllllllllllllllll"/>
+
+            <!-- MAIN PANEL STYLING -->
+            <Grid.Resources>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Margin" Value="1,1,1,1" />
+                    <Setter Property="Opacity" Value="0.8"/>
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="FontSize" Value="19"/>
+                    <Setter Property="Background" Value="#FF1D1717"/>
+                    <Setter Property="FontFamily" Value="Arial"/>
+                </Style>
+                <Style TargetType="TextBlock">
+                    <Setter Property="Margin" Value="1,1,1,4"/>
+                    <Setter Property="Background" Value="#FFC9C9C9"/>
+                    <Setter Property="FontSize" Value="44"/>
+                    <Setter Property="Foreground" Value="Black"/>
+                    <Setter Property="TextAlignment" Value="Center"/>
+                    <Setter Property="VerticalAlignment" Value="Stretch"/>
+                </Style>
+            </Grid.Resources>
 
         </Grid>
     </Grid>
- 
 </Window>
