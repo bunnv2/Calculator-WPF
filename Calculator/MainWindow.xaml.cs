@@ -18,9 +18,6 @@ namespace Calculator
 {
     public partial class MainWindow : Window
     {
-
-        private double x = 0;
-        private double y = 0;
         private string operation = "";
         public MainWindow()
         {
@@ -60,8 +57,40 @@ namespace Calculator
         private void Aritmetic_Click(object sender, RoutedEventArgs e)
         {
             Button button = sender as Button;
+
             if (display.Text!="")
             {
+                if (button.Content.ToString() == "x^2")
+                {
+                    double x = 0;
+                    display.Text = display.Text.Replace(".", ",");
+                    double.TryParse(display.Text, out x);
+                    display.Text = (x * x).ToString().Replace(",",".");
+
+                    if (display.Text == "∞")
+                    {
+                        MessageBox.Show("Nieskończoność, wybierz ponownie.");
+                        display.Text = "";
+                    }
+                    return;
+                }
+                if (button.Content.ToString() == "1/x")
+                {
+                    double x = 0;
+                    if (display.Text.Contains("."))
+                    {
+                        display.Text = display.Text.Replace(".", ",");
+                    }
+                    double.TryParse(display.Text, out x);
+                    x = 1 / x;
+                    display.Text = x.ToString();
+                    if (display.Text.Contains(","))
+                    {
+                        display.Text = x.ToString().Replace(",",".");
+                    }
+                    operation = "";
+                    return;
+                }
                 operation += "(" + display.Text + ")" + button.Content.ToString();
             }
             display.Text = "";
@@ -70,17 +99,23 @@ namespace Calculator
         private void Result_Click(object sender, RoutedEventArgs e)
         {
             DataTable dt = new DataTable();
-            if(display.Text != "")
+            if (display.Text == "∞")
+            {
+                display.Text = "";
+                operation = "";
+            }
+            else if(display.Text != "")
             {
                 operation += "(" + display.Text + ")";
-                var v = dt.Compute(operation,"");
+                object v = null;
+                v = dt.Compute(operation,"");
                 display.Text = v.ToString();
                 if (display.Text.Contains(","))
                 {
                     display.Text = display.Text.Replace(",", ".");
                 }
             }
-        operation = "";
+            operation = "";
         }
     }
 }
