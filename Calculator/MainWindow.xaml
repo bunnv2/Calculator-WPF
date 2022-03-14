@@ -78,88 +78,108 @@
             <!--  MAIN NUMBERS PANEL WITH "," AND "+/-"   -->
             <Button Grid.Column="0"
                 Grid.Row="2"
-                Content="8">
+                Content="8"
+                Click="Number_Click">
             </Button>
             <Button Grid.Column="1"
                 Grid.Row="2"
-                Content="7">
+                Content="7"
+                Click="Number_Click">
             </Button>
             <Button Grid.Column="2"
                 Grid.Row="2"
-                Content="9">
+                Content="9"
+                Click="Number_Click">
             </Button>
             <Button Grid.Column="0"
                 Grid.Row="3"
-                Content="4">
+                Content="4"
+                Click="Number_Click">
             </Button>
             <Button Grid.Column="1"
                 Grid.Row="3"
-                Content="5">
+                Content="5"
+                Click="Number_Click">
             </Button>
             <Button Grid.Column="2"
                 Grid.Row="3"
-                Content="6">
+                Content="6"
+                Click="Number_Click">
             </Button>
             <Button Grid.Column="0"
                 Grid.Row="4"
-                Content="1">
+                Content="1"
+                Click="Number_Click">
             </Button>
             <Button Grid.Column="1"
                 Grid.Row="4"
-                Content="2">
+                Content="2"
+                Click="Number_Click">
             </Button>
             <Button Grid.Column="2"
                 Grid.Row="4"
-                Content="3">
+                Content="3"
+                Click="Number_Click">
             </Button>
             <Button Grid.Column="0"
                 Grid.Row="5"
-                Content="+/-">
+                Content="+/-"
+                Click="Number_Click">
             </Button>
             <Button Grid.Column="1"
                 Grid.Row="5"
-                Content="0">
+                Content="0"
+                Click="Number_Click">
             </Button>
             <Button Grid.Column="2"
                 Grid.Row="5"
-                Content=",">
+                Content=","
+                Click="Number_Click">
             </Button>
             <!-- ARITMETIC RIGHT PANEL  -->
             <Button Grid.Column="4"
                 Grid.Row="5"
-                Content="-">
+                Content="-"
+                Click="Aritmetic_Click">
             </Button>
             <Button Grid.Column="4"
                 Grid.Row="4"
-                Content="+">
+                Content="+"
+                Click="Aritmetic_Click">
             </Button>
             <Button Grid.Column="4"
                 Grid.Row="3"
-                Content="*">
+                Content="*"
+                Click="Aritmetic_Click">
             </Button>
             <Button Grid.Column="4"
                 Grid.Row="2"
-                Content="/">
+                Content="/"
+                Click="Aritmetic_Click">
             </Button>
             <!-- ARITMETIC UP PANEL  -->
             <Button Grid.Column="3"
                 Grid.Row="1"
-                Content="=">
+                Content="="
+                Click="Result_Click">
             </Button>
             <Button Grid.Column="2"
                 Grid.Row="1"
-                Content="1/x">
+                Content="1/x"
+                Click="Aritmetic_Click">
             </Button>
             <Button Grid.Column="1"
                 Grid.Row="1"
-                Content="x^2">
+                Content="x^2"
+                Click="Aritmetic_Click">
             </Button>
             
             <TextBlock Grid.ColumnSpan="4"
                        Grid.Row="0"
                        Grid.Column="0"
                        Padding="25"
-                       Text="llllllllllllllllllll"/>
+                       Name="display"
+                       Text=""/>
 
             <!-- MAIN PANEL STYLING -->
             <Grid.Resources>
