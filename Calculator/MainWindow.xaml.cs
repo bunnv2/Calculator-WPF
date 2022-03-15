@@ -51,7 +51,16 @@ namespace Calculator
                 return;
             }
 
-            display.Text += button.Content.ToString();
+            if (display.Text.Length >= 11)
+            {
+                MessageBox.Show("Za długa liczba!");
+                display.Text = display.Text.Substring(0, 10);
+            }
+            else
+            {
+                display.Text += button.Content.ToString();
+            }
+
         }
 
         private void Aritmetic_Click(object sender, RoutedEventArgs e)
@@ -63,20 +72,28 @@ namespace Calculator
                 if (button.Content.ToString() == "x^2")
                 {
                     double x = 0;
+                    string temp = display.Text;
                     display.Text = display.Text.Replace(".", ",");
                     double.TryParse(display.Text, out x);
                     display.Text = (x * x).ToString().Replace(",",".");
 
-                    if (display.Text == "∞")
+                    if (display.Text.Length >= 11)
                     {
-                        MessageBox.Show("Nieskończoność, wybierz ponownie.");
-                        display.Text = "";
+                        MessageBox.Show("Za duża liczba!: " + display.Text);
+                        display.Text = temp;
                     }
                     return;
                 }
                 if (button.Content.ToString() == "1/x")
                 {
                     double x = 0;
+                    if (display.Text == "0")
+                    {
+                        MessageBox.Show("Nie można dzielić przez zero!");
+                        display.Text = "";
+                        operation = "";
+                        return;
+                    }
                     if (display.Text.Contains("."))
                     {
                         display.Text = display.Text.Replace(".", ",");
@@ -91,7 +108,18 @@ namespace Calculator
                     operation = "";
                     return;
                 }
+
                 operation += "(" + display.Text + ")" + button.Content.ToString();
+            }
+            else
+            {
+                if(operation.EndsWith("+") ||
+                    operation.EndsWith("-") ||
+                    operation.EndsWith("/") ||
+                    operation.EndsWith("*"))
+                {
+                    operation = operation.Substring(0, operation.Length - 1) + button.Content.ToString();
+                }
             }
             display.Text = "";
         }
@@ -107,6 +135,12 @@ namespace Calculator
             else if(display.Text != "")
             {
                 operation += "(" + display.Text + ")";
+                if (operation.Contains("/(0)"))
+                {
+                    MessageBox.Show("Nie można dzielić przez zero!");
+                    operation = "";
+                    return;
+                }
                 object v = null;
                 v = dt.Compute(operation,"");
                 display.Text = v.ToString();
@@ -114,6 +148,10 @@ namespace Calculator
                 {
                     display.Text = display.Text.Replace(",", ".");
                 }
+            }
+            if (display.Text.Length >= 11)
+            {
+                display.Text = display.Text.Substring(0, 10);
             }
             operation = "";
         }
