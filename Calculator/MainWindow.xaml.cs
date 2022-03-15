@@ -117,5 +117,22 @@ namespace Calculator
             }
             operation = "";
         }
+
+        private void Clear_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            if (button.Content.ToString() == "CLEAR")
+            {
+                display.Text = String.Empty;
+                operation = String.Empty;
+            }
+            else
+            {
+                if (display.Text.Length!=0)
+                {
+                    display.Text = display.Text.Substring(0,display.Text.Length-1);
+                }
+            }
+        }
     }
 }
